@@ -20,7 +20,7 @@ class UserDetails extends React.Component {
 					<tr><th>Suite</th><td>{address && address.suite}</td></tr>
 					<tr><th>City</th><td>{address && address.city}</td></tr>
 					<tr><th>Zipcode</th><td>{address && address.zipcode}</td></tr>
-					<tr><th>Location</th><td>{googleMapsLink && <a href={googleMapsLink} target="_blank">Open Google Maps</a>}</td></tr>
+					<tr><th>Location</th><td>{googleMapsLink && <a href={googleMapsLink} target="_blank" rel="noreferrer noopener">Open Google Maps</a>}</td></tr>
 					<tr><th>Phone</th><td>{user.phone}</td></tr>
 					<tr><th>Website</th><td><a href={"http://" + user.website} target="_blank">{user.website}</a></td></tr>
 					<tr><th>Company Name</th><td>{user.company && user.company.name}</td></tr>
