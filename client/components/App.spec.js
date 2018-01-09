@@ -38,7 +38,6 @@ describe('On first page load', () => {
         const wrapper = mount(<App />);
         wrapper.setState({loadingUsers: false, users}, () => {
 			wrapper.update();
-			expect(wrapper.find('h2').contains(<h2>User List</h2>)).toBe(true);
 			const userRows = wrapper.find('tbody tr');
 			expect(userRows).toHaveLength(users.length);
         });

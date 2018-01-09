@@ -43,23 +43,22 @@ class App extends React.Component {
 						active={true} >
 					</OverlayLoader>;
 
-		return ( // SURPLUS DIVS
-			<div>
+		return (
+			<main>
+				<h2>User List</h2>
 				{this.state.loadingUsers && <div className="loading-component">{loader}</div>}
 				{!this.state.loadingUsers &&
-					<div>
-						<h2>User List</h2>
-						<div className="user-list-container">
-							{this.state.users.length && 
-								<UserList 
-									users={this.state.users}
-									loadingUsers={this.state.loadingUsers}
-									loader={loader}
-								/>
-							}</div>
+					<div className="user-list-container">
+						{this.state.users.length && 
+							<UserList 
+								users={this.state.users}
+								loadingUsers={this.state.loadingUsers}
+								loader={loader}
+							/>
+						}
 					</div>
 				}
-			</div>
+			</main>
 		);
 	}
 }
