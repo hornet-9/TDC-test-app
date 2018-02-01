@@ -62,7 +62,7 @@ class UserList extends React.Component {
 
 	render() {
 
-		let user, stylesClass, rows = [];
+		let user, stylesClass, dataItems, rows = [];
 
 		const users = this.props.users,
 			selectedUserId = this.state.selectedUser.id;
@@ -70,16 +70,14 @@ class UserList extends React.Component {
 		for (let i = 0; i < users.length; i += 1) {
 
 			user = users[i];
-			stylesClass = selectedUserId !== i + 1 ? 'table-cell' : 'hidden';
+			stylesClass = selectedUserId !== i + 1 ? 'table-cell' : 'hidden',
+			dataItems = [user.name, user.username, user.email, user.phone, user.company && user.company.name].map(
+		        		(value, index) => <td key={index} className={stylesClass}>{value}</td>);
 
         	rows.push(
         		!this.props.loadingUsers && 
         		<tr key={i} onClick={this._displayUserDetails.bind(this, user.id)} className={selectedUserId === i + 1 ? 'extended' : 'collapsed'}>
-		        	<td className={stylesClass}>{user.name}</td>
-	        		<td className={stylesClass}>{user.username}</td>
-	        		<td className={stylesClass}>{user.email}</td>
-	        		<td className={stylesClass}>{user.phone}</td>
-	        		<td className={stylesClass}>{user.company && user.company.name}</td>
+		        	{dataItems}
 	        		<td colSpan="5" className={selectedUserId === i + 1 ? 'table-cell' : 'hidden'}>
 	        			{selectedUserId && !this.state.loadingUser && 
 	        				<UserDetails 
