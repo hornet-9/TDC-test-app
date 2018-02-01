@@ -1,15 +1,21 @@
-@font-face{font-family:'lft_etica';
+$dark-grey: rgb(152, 164, 162);
+$green-grey: rgb(172, 182, 180);
+$yousee-green: rgb(60, 184, 77);
+$yousee-black: rgb(0,34,25);
+
+@font-face{
+	font-family:'lft_etica';
 	src:url(/client/styles/fonts/lft-etica-reg-webfont.woff2) format("woff2"),url(/client/styles/fonts/lft-etica-reg-webfont.woff) format("woff");
-	font-weight:normal;
-	font-style:normal;
 }
 body {
 	margin: 0;
 	font-family: lft_etica, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1 {
-	font-weight: normal;
-	font-size: 14px;
+	font: {
+		weight: normal;
+		size: 14px;
+	}
 	margin: 13px 0;
 }
 h2 {
@@ -17,17 +23,15 @@ h2 {
 }
 a {
 	text-decoration: none;
-	color: #3cb84d;
+	color: $yousee-green;
 }
 header, footer {
 	text-align: center;
-	background-color: rgb(0, 34, 25);
+	background-color: $yousee-black;
 }
 header {
 	height: 114px;
-	color: rgb(60, 184, 77);
-	font-size: 14px;
-	font-weight: 400;
+	color: $yousee-green;
 	.logo {
 		a {
 			margin-top: 22px;
@@ -52,22 +56,22 @@ footer {
 table {
 	font-size: 11px;
 }
+tr {
+	height: 25px;
+	transition: height 0.5s;
+}
 th, td {
 	padding: 0 5px;
 }
 th {
 	text-align: left;
 }
-tr {
-	height: 25px;
-	transition: height 0.5s;
-}
 td {
 	min-width: 80px;
 }
 
 #root {
-	background: linear-gradient(rgb(161, 172, 169), rgb(238, 238, 238));
+	background: linear-gradient($green-grey, darken(white, 5%));
 	padding: 20px;
 	min-height: calc(100vh - 114px - 40px - 40px); /*Total height minus header, footer and padding*/
 }
@@ -79,11 +83,11 @@ td {
 }
 .loading-component {
 	margin-top: 15%;
-	color: rgb(60, 184, 77);
+	color: $yousee-green;
 }
 .collapse {
 	float: right;
-    color: rgb(60, 184, 77);
+    color: $yousee-green;
     font-size: 4em;
 	cursor: pointer;
 }
@@ -91,7 +95,7 @@ td {
 	overflow-x: auto;
 }
 .user-details {
-	background: linear-gradient(rgb(172, 182, 180), rgb(255, 255, 255));
+	background: linear-gradient($green-grey, white);
 	width: 70vw;
 	tr {
 		line-height: 18px;
@@ -99,13 +103,13 @@ td {
 	}
 }
 .user-list {
-	background: linear-gradient(rgb(152, 164, 162), rgb(255, 255, 255));
+	background: linear-gradient($dark-grey, white);
 	margin: 0 auto;
 }
 .collapsed {
 	cursor: pointer;
 	&:hover {
-		background: darken(rgb(152, 164, 162), 10%);
+		background: darken($dark-grey, 10%);
 	}
 }
 .extended {
